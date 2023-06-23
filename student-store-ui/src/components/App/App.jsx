@@ -61,7 +61,7 @@ export default function App() {
 
     setShoppingCart(temp);
   }
-  
+
   function handleRemoveItemToCart(productId) {
     let temp = [...shoppingCart];
     let inCart = false;
@@ -80,6 +80,17 @@ export default function App() {
     }
 
     setShoppingCart(temp);
+  }
+
+  function handleOnCheckoutFormChange(name, value) {
+    setCheckoutForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  }
+
+  function handleOnSubmitCheckoutForm(name, value) {
+    // Handle the submission of the checkout form
   }
 
 
