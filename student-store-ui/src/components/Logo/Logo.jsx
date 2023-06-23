@@ -6,9 +6,7 @@ export default function Logo(){
     return(
         <div className="Logo">
             <Link to={"/"}>
-                <a href="">
                     <img className="logo-img" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/wfsonfv0p92plryzwijf" alt="codepath-logo" width="50" height="70"></img>
-                </a>
             </Link>
         </div>
     )

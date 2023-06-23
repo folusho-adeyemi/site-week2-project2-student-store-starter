@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link} from "react-router-dom";
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
@@ -21,20 +21,16 @@ export default function App() {
   const API_URL = "https://codepath-store-api.herokuapp.com/store";
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsFetching(true);
+    async function fetchData() {
       try {
-        const response = await axios.get(`${API_URL}`);
-        const { data } = response;
-        setProducts(data);
-        setIsFetching(true);
-        console.log("Fetched products:", products);
+        const response = await axios(API_URL);
+        setProducts(response.data.products);
       } catch (error) {
-        setError("Error fetching products.");
-        setIsFetching(false);
+        console.log(error);
+        setIsFetching(true);
       }
-    };
-
+    }
+    console.log(products)
     fetchData();
   }, []);
 
@@ -102,7 +98,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={() => <Home products={products} />} />
           <Route path="/products/:productId" element={ProductDetail} />
-          <Route component={NotFound} />
+          <Route element={() => <NotFound/>} />
         </Routes>
       </BrowserRouter>
     </div>
