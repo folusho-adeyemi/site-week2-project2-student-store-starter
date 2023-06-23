@@ -26,7 +26,7 @@ export default function App() {
       try {
         const response = await axios.get(`${API_URL}`);
         const { data } = response;
-        setProducts(data.products);
+        setProducts(data);
         setIsFetching(true);
         console.log("Fetched products:", products);
       } catch (error) {
@@ -97,8 +97,8 @@ export default function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Navbar />
         <Sidebar isOpen={isOpen} />
+        <Navbar />
         <Routes>
           <Route exact path="/" element={() => <Home products={products} />} />
           <Route path="/products/:productId" element={ProductDetail} />
