@@ -61,6 +61,27 @@ export default function App() {
 
     setShoppingCart(temp);
   }
+  
+  function handleRemoveItemToCart(productId) {
+    let temp = [...shoppingCart];
+    let inCart = false;
+
+    temp = temp.map((item) => {
+      if (item.itemId === productId) {
+        inCart = true;
+        return { ...item, quantity: item.quantity - 1 };
+      } else {
+        return item;
+      }
+    });
+
+    if (!inCart) {
+      temp = [...temp, { itemId: productId, quantity: 0 }];
+    }
+
+    setShoppingCart(temp);
+  }
+
 
   return (
     <div className="app">
