@@ -6,6 +6,9 @@ import Sidebar from "../Sidebar/Sidebar";
 import Home from "../Home/Home";
 import ProductDetail from "../ProductDetail/ProductDetail";
 import NotFound from "../NotFound/NotFound";
+import About from "../About/About";
+import Footer from "../Footer/Footer";
+
 import "./App.css";
 
 export default function App() {
@@ -23,7 +26,7 @@ export default function App() {
       try {
         const response = await axios.get(`${API_URL}`);
         const { data } = response;
-        setProducts(data);
+        setProducts(data.products);
         setIsFetching(true);
         console.log("Fetched products:", products);
       } catch (error) {
@@ -42,7 +45,7 @@ export default function App() {
         <Sidebar />
         <Routes>
           <Route exact path="/" element={() => <Home products={products} />} />
-          <Route path="/products/:productId" component={ProductDetail} />
+          <Route path="/products/:productId" element={ProductDetail} />
           <Route component={NotFound} />
         </Routes>
       </BrowserRouter>
