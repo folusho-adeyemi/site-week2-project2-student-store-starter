@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from "react"
-import { BrowserRouter } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import axios from "axios";
-import Navbar from "../Navbar/Navbar"
-import Sidebar from "../Sidebar/Sidebar"
-import Home from "../Home/Home"
+import Navbar from "../Navbar/Navbar";
+import Sidebar from "../Sidebar/Sidebar";
+import Home from "../Home/Home";
 import ProductDetail from "../ProductDetail/ProductDetail";
-import "./App.css"
-
+import NotFound from "../NotFound/NotFound";
+import "./App.css";
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -14,18 +14,18 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [shoppingCart, setShoppingCart] = useState([]);
-  const [checkoutForm, setCheckOutForm] = useState({"name":"", "email":""})
-  const URL = "https://codepath-store-api.herokuapp.com/store";
+  const [checkoutForm, setCheckoutForm] = useState({ name: "", email: "" });
+  const API_URL = "https://codepath-store-api.herokuapp.com/store";
 
   useEffect(() => {
     const fetchData = async () => {
       setIsFetching(true);
       try {
-        const response = await axios.get(URL);
-        const { data } = response.json;
-        console.log(data)
+        const response = await axios.get(`${API_URL}`);
+        const { data } = response;
         setProducts(data);
-        setIsFetching(false);
+        setIsFetching(true);
+        console.log("Fetched products:", products);
       } catch (error) {
         setError("Error fetching products.");
         setIsFetching(false);
@@ -35,17 +35,17 @@ export default function App() {
     fetchData();
   }, []);
 
-
   return (
     <div className="app">
       <BrowserRouter>
-        <main>
-          {/* YOUR CODE HERE! */}
-          <Navbar />
-          <Sidebar />
-          <Home />
-        </main>
+        <Navbar />
+        <Sidebar />
+        <Routes>
+          <Route exact path="/" element={() => <Home products={products} />} />
+          <Route path="/products/:productId" component={ProductDetail} />
+          <Route component={NotFound} />
+        </Routes>
       </BrowserRouter>
     </div>
-  )
+  );
 }
