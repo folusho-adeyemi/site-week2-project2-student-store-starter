@@ -4,7 +4,7 @@ import axios from "axios";
 import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
-import ProductDetail from "../ProductDetil/ProductDetail";
+import ProductDetail from "../ProductDetail/ProductDetail";
 import "./App.css"
 
 
@@ -17,12 +17,13 @@ export default function App() {
   const [checkoutForm, setCheckOutForm] = useState({"name":"", "email":""})
   const URL = "https://codepath-store-api.herokuapp.com/store";
 
-  useEffect(async() => {
+  useEffect(() => {
     const fetchData = async () => {
       setIsFetching(true);
       try {
         const response = await axios.get(URL);
-        const { data } = response;
+        const { data } = response.json;
+        console.log(data)
         setProducts(data);
         setIsFetching(false);
       } catch (error) {
