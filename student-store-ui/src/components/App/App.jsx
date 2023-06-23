@@ -12,7 +12,7 @@ import Footer from "../Footer/Footer";
 import "./App.css";
 
 export default function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -38,11 +38,35 @@ export default function App() {
     fetchData();
   }, []);
 
+  function handleOnToggle() {
+    setIsOpen(!isOpen);
+  }
+
+  function handleAddItemsToCart(productId) {
+    let temp = [...shoppingCart];
+    let inCart = false;
+
+    temp = temp.map((item) => {
+      if (item.itemId === productId) {
+        inCart = true;
+        return { ...item, quantity: item.quantity + 1 };
+      } else {
+        return item;
+      }
+    });
+
+    if (!inCart) {
+      temp = [...temp, { itemId: productId, quantity: 1 }];
+    }
+
+    setShoppingCart(temp);
+  }
+
   return (
     <div className="app">
       <BrowserRouter>
         <Navbar />
-        <Sidebar />
+        <Sidebar isOpen={isOpen} />
         <Routes>
           <Route exact path="/" element={() => <Home products={products} />} />
           <Route path="/products/:productId" element={ProductDetail} />
