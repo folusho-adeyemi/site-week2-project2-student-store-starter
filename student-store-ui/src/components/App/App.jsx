@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes, Link} from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
@@ -12,7 +12,7 @@ import Footer from "../Footer/Footer";
 import "./App.css";
 
 export default function App() {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -21,16 +21,21 @@ export default function App() {
   const API_URL = "https://codepath-store-api.herokuapp.com/store";
 
   useEffect(() => {
+    console.log(products)
+  })
+  
+  useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios(API_URL);
+       //const data = await response.json();
         setProducts(response.data.products);
       } catch (error) {
         console.log(error);
         setIsFetching(true);
       }
     }
-    console.log(products)
+    console.log(products);
     fetchData();
   }, []);
 
@@ -89,17 +94,44 @@ export default function App() {
     // Handle the submission of the checkout form
   }
 
-
   return (
     <div className="app">
       <BrowserRouter>
-        <Sidebar isOpen={isOpen} />
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={() => <Home products={products} />} />
-          <Route path="/products/:productId" element={ProductDetail} />
-          <Route element={() => <NotFound/>} />
-        </Routes>
+        <main>
+          {/* YOUR CODE HERE! */}
+          <Navbar />
+          <Sidebar
+            isOpen={isOpen}
+            shoppingCart={shoppingCart}
+            products={products}
+            checkoutForm={checkoutForm}
+            handleCheckoutForm={handleOnCheckoutFormChange}
+            handleSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+            handleToggle={handleOnToggle}
+          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  products={products}
+                  handleAddItemsToCart={handleAddItemsToCart}
+                  handleRemoveItemToCart={handleRemoveItemToCart}
+                />
+              }
+            />
+            <Route
+              path="/products/:productId"
+              element={
+                <ProductDetail
+                  handleAddItemsToCart={handleAddItemsToCart}
+                  handleRemoveItemToCart={handleRemoveItemToCart}
+                />
+              }
+            />
+          </Routes>
+          {/* <Menu /> */}
+        </main>
       </BrowserRouter>
     </div>
   );
