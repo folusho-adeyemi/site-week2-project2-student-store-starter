@@ -10,7 +10,7 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0;
-  background-color: #cad3cb;
+  background-color: #629b69;
 }
 .banner {
   height: 100%;
@@ -35,7 +35,7 @@ body {
 }
 
 input{
-  color: #b37d8b;
+  color: #0c633a;
 }
 .search {
   color: #fff;
@@ -61,7 +61,7 @@ input{
   margin: -83px auto 0 auto;
   background-color: white;
   border-radius: 20px;
-  box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+  box-shadow: 0 10px 40px #065b37, 0 0 0 20px #ffffffeb;
   transform: scale(0.6);
 }
 
@@ -185,7 +185,7 @@ form {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 254, 254, 0.5);
+  background-color: rgba(8, 103, 52, 0.5);
   z-index: 2;
   cursor: pointer;
 }

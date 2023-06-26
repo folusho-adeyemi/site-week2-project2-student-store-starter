@@ -63,7 +63,7 @@ button .submit{
   margin: -83px auto 0 auto;
   background-color: white;
   border-radius: 20px;
-  box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+  box-shadow: 0 10px 40px #0d654b, 0 0 0 20px #ffffffeb;
   transform: scale(0.6);
 }
 
@@ -79,7 +79,7 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-  color: #b37d8b;
+  color: #931400;
 }
 
 #s-cover {
@@ -103,7 +103,7 @@ button .submit {
   height: 43px;
   margin-top: 0;
   border-width: 15px;
-  border: 15px solid #b37d8b;
+  border: 15px solid #114137;
   background-color: transparent;
   border-radius: 50%;
   transition: 0.5s ease all;
@@ -130,7 +130,7 @@ button .submit span:after {
   right: 0;
   width: 45px;
   height: 15px;
-  background-color: #b37d8b;
+  background-color: #136631;
   border-radius: 10px;
   transform: rotateZ(0);
   transition: 0.5s ease all;
@@ -141,7 +141,7 @@ button .submit span:after {
   width: 67px;
   height: 15px;
   border-width: 0;
-  background-color: #b37d8b;
+  background-color: #124730;
   border-radius: 20px;
 }
 
@@ -166,7 +166,7 @@ button .submit span:after {
 #s-cover:hover button .submit span:after {
   right: -6px;
   width: 40px;
-  background-color: #b37d8b;
+  background-color: #094822;
 }
 
 img{

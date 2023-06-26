@@ -3,7 +3,7 @@ import "./ProductCard.css"
 import { BrowserRouter, Link } from "react-router-dom"
 
 
- export default function ProductCard({product, productId, quantity, handleAddItemsToCart, handleRemoveItemToCart, showDescription}){
+ export default function ProductCard({product, productId, handleAddItemsToCart, handleRemoveItemToCart, showDescription}){
     return(
         <section className="product-card">
       <div className="product-card">

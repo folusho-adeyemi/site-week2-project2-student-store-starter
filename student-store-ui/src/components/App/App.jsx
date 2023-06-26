@@ -124,6 +124,7 @@ export default function App() {
               path="/products/:productId"
               element={
                 <ProductDetail
+                products={products}
                   handleAddItemsToCart={handleAddItemsToCart}
                   handleRemoveItemToCart={handleRemoveItemToCart}
                 />
