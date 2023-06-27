@@ -90,7 +90,7 @@ export default function ProductGrid({ products, handleAddItemsToCart, handleRemo
                 handleAddItemsToCart={handleAddItemsToCart}
                 handleRemoveItemToCart={handleRemoveItemToCart}
                 showDescription={false}
-                // key={idx}
+                key={idx}
               />
             ))
           ) : searched === "" && clickedCategory === "" ? (
@@ -101,7 +101,7 @@ export default function ProductGrid({ products, handleAddItemsToCart, handleRemo
                 handleAddItemsToCart={handleAddItemsToCart}
                 handleRemoveItemToCart={handleRemoveItemToCart}
                 showDescription={false}
-                // key={idx}
+                key={idx}
               />
             ))
           ) : (currSearch.map((product, idx) => (
@@ -111,7 +111,7 @@ export default function ProductGrid({ products, handleAddItemsToCart, handleRemo
               handleAddItemsToCart={handleAddItemsToCart}
               handleRemoveItemToCart={handleRemoveItemToCart}
               showDescription={false}
-              // key={idx}
+              key={idx}
             />
           )))}
         </div>

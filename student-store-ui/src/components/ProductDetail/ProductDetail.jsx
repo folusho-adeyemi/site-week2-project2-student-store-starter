@@ -9,7 +9,6 @@ export default function ProductDetail({ products }){
     // Find the product with the matching productId
     // Assuming your products array is accessible in this component
     const data = products.find((data) => data.id === parseInt(productId));
-    console.log(data)
     
     if (data) {
         return (

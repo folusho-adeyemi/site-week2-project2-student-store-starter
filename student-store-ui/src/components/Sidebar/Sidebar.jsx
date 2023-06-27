@@ -1,32 +1,43 @@
-import * as React from "react"
-import "./Sidebar.css"
-import ShoppingCart from "../ShoppingCart/ShoppingCart"
+import React from "react";
+import "./Sidebar.css";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
-export default function Sidebar({isOpen,shoppingCart, products, checkoutForm, handleCheckoutForm, handleSubmitCheckoutForm, handleToggle}) {
+export default function Sidebar({
+  isOpen,
+  shoppingCart,
+  products,
+  checkoutForm,
+  handleCheckoutForm,
+  handleSubmitCheckoutForm,
+  handleOnToggle
+}) {
   return (
-    <section className="sidebar">
-         {isOpen == true
-      ? <div className="cart-icons">
-        <button class="toggle-button button open" onClick={handleToggle}>
-          <i className="material-icons md-48">arrow_backward</i>
-        </button>
+    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
+        <div className="cart-icons">
+        {isOpen ? (
+          <div>
+          <button className="toggle-button button open" onClick={handleOnToggle}>
+            <i className="material-icons md-48">arrow_backward</i>
+          </button>
           <span className="cart-icons icon button">
             <i className="material-icons md-48">add_shopping_cart</i>
           </span>
-          <ShoppingCart isOpen={isOpen} shoppingCart={shoppingCart} products={products}/>
+          <ShoppingCart isOpen={isOpen} shoppingCart={shoppingCart} products={products} />
           <span className="cart-icons icon button">
             <i className="material-icons md-48">monetization_on</i>
           </span>
           <span className="cart-icons icon button">
             <i className="material-icons md-48">fact_check</i>
           </span>
-      </div>
-      : <div>
-        <button className="toggle-button button closed" onClick={handleToggle}>
+        </div>
+       ): (
+        <div>
+          <button className="toggle-button button closed" onClick={handleOnToggle}>
             <i className="material-icons md-48">arrow_forward</i>
           </button>
-      </div>
-    }
-    </section>
-  )
+          </div>
+          )}
+        </div>
+    </aside>
+  );
 }

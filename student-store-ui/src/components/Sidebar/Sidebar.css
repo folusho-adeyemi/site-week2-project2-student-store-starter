@@ -22,10 +22,10 @@
 	overflow-y: scroll;
 }
 
-.sidebar .toggle-btn {
+.sidebar .toggle-button {
 	margin-top: 8px;
 	padding: 8px;
-	color: white;
+	color: rgb(10, 9, 9);
 	border: none;
 	border-radius: 50%;
 	cursor: pointer;
@@ -39,7 +39,7 @@
 	transition: transform 0.2s ease-in-out;
 }
 
-.sidebar.open .toggle-btn {
+.sidebar.open .toggle-button {
 	transform: translateX(-250px);
 }
 

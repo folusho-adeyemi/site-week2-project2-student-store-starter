@@ -21,7 +21,6 @@ export default function App() {
   const API_URL = "https://codepath-store-api.herokuapp.com/store";
 
   useEffect(() => {
-    console.log(products)
   })
   
   useEffect(() => {
@@ -40,7 +39,8 @@ export default function App() {
   }, []);
 
   function handleOnToggle() {
-    setIsOpen(!isOpen);
+  console.log("Toggle button clicked");
+  setIsOpen(!isOpen);
   }
 
   function handleAddItemsToCart(productId) {
@@ -107,7 +107,7 @@ export default function App() {
             checkoutForm={checkoutForm}
             handleCheckoutForm={handleOnCheckoutFormChange}
             handleSubmitCheckoutForm={handleOnSubmitCheckoutForm}
-            handleToggle={handleOnToggle}
+            handleOnToggle={handleOnToggle}
           />
           <Routes>
             <Route
@@ -124,7 +124,7 @@ export default function App() {
               path="/products/:productId"
               element={
                 <ProductDetail
-                products={products}
+                  products={products}
                   handleAddItemsToCart={handleAddItemsToCart}
                   handleRemoveItemToCart={handleRemoveItemToCart}
                 />
