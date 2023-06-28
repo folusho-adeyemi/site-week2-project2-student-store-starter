@@ -10,7 +10,7 @@ export default function ShoppingCart({ isOpen, shoppingCart, products, handleAdd
 
     shoppingCart.forEach((item) => {
       const product = products.find((item) => products.itemId === item.itemId);
-      console.log(item)
+      console.log(product)
       if (product) {
         subtotal += product.price * item.quantity;
       }

@@ -5,13 +5,14 @@ import { BrowserRouter, Link } from "react-router-dom"
  export default function ProductCard({product, productId, handleAddItemsToCart, handleRemoveItemToCart, showDescription}){
     
     const [IncrementedValue, setIncrementedValue] = useState(0)
-    // function IncrementedValue(){
-    // if (IncrementedValue <= 0){
-    //     return "";
-    // }else{
-    //     return IncrementedValue;
-    // }
-    // }
+
+    function selectedValue(){
+    if (IncrementedValue <= 0){
+        return "";
+    }else{
+        return IncrementedValue;
+    }
+    }
 
 
     return(
@@ -22,7 +23,7 @@ import { BrowserRouter, Link } from "react-router-dom"
         {/* TODO: FIX according sto specifications */}
         <Link to={"/products/" + product.id}> 
         {/* TODO: Get it to navigate to description page when clicked */}
-            {/* <img className="product-img" src={product.image}></img> */}
+            <img className="product-img" src={product.image}></img>
         </Link>
         <div className="container">
         <button className="add" 
@@ -32,12 +33,13 @@ import { BrowserRouter, Link } from "react-router-dom"
         }}>
             <h3>+</h3>
         </button>
-        <h3>{IncrementedValue}</h3>
+        <h3>{selectedValue()}</h3>
        
         <button className="remove" 
         onClick={() => {
             handleRemoveItemToCart(productId, IncrementedValue);
             setIncrementedValue(IncrementedValue -1)
+            
         }}>
             <h3>-</h3>
         </button>

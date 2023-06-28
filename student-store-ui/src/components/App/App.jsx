@@ -67,7 +67,9 @@ export default function App() {
     let inCart = false;
 
     temp = temp.map((item) => {
-      if (item.itemId === productId || item.quantity > 0) {
+      if (item.itemId === productId){
+      }if(item.quantity != 0)
+      {
         inCart = true;
         return { ...item, quantity: item.quantity - 1 };
       } else {
