@@ -1,9 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import "./ProductCard.css"
 import { BrowserRouter, Link } from "react-router-dom"
 
-
  export default function ProductCard({product, productId, handleAddItemsToCart, handleRemoveItemToCart, showDescription}){
+    
+    const [IncrementedValue, setIncrementedValue] = useState(0)
+    // function IncrementedValue(){
+    // if (IncrementedValue <= 0){
+    //     return "";
+    // }else{
+    //     return IncrementedValue;
+    // }
+    // }
+
+
     return(
         <section className="product-card">
       <div className="product-card">
@@ -15,10 +25,20 @@ import { BrowserRouter, Link } from "react-router-dom"
             <img className="product-img" src={product.image}></img>
         </Link>
         <div className="container">
-        <button className="add" onClick={() => handleAddItemsToCart(productId)}>
+        <button className="add" 
+        onClick={() => {
+        handleAddItemsToCart(productId);
+        setIncrementedValue(IncrementedValue +1)
+        }}>
             <h3>+</h3>
         </button>
-        <button className="remove" onClick={() => handleRemoveItemToCart(productId)}>
+        <h3>{IncrementedValue}</h3>
+       
+        <button className="remove" 
+        onClick={() => {
+            handleRemoveItemToCart(productId, IncrementedValue);
+            setIncrementedValue(IncrementedValue -1)
+        }}>
             <h3>-</h3>
         </button>
         </div>

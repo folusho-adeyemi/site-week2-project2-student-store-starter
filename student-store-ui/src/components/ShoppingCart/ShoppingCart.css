@@ -1,0 +1,33 @@
+.shopping-cart {
+    display: none;
+    background-color: #fff;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .shopping-cart.open {
+    display: block;
+  }
+  
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .cart-table th,
+  .cart-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .cart-table th {
+    font-weight: bold;
+  }
+  
+  .notification {
+    color: #888;
+    font-style: italic;
+  }
+  

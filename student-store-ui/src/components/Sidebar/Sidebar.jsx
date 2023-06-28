@@ -2,15 +2,7 @@ import React from "react";
 import "./Sidebar.css";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
-export default function Sidebar({
-  isOpen,
-  shoppingCart,
-  products,
-  checkoutForm,
-  handleCheckoutForm,
-  handleSubmitCheckoutForm,
-  handleOnToggle
-}) {
+export default function Sidebar({isOpen,shoppingCart,products,checkoutForm,handleCheckoutForm,handleSubmitCheckoutForm,handleOnToggle,handleAddItemsToCart, handleRemoveItemToCart}) {
   return (
     <aside className={`sidebar ${isOpen ? "open" : ""}`}>
         <div className="cart-icons">
@@ -22,7 +14,7 @@ export default function Sidebar({
           <span className="cart-icons icon button">
             <i className="material-icons md-48">add_shopping_cart</i>
           </span>
-          <ShoppingCart isOpen={isOpen} shoppingCart={shoppingCart} products={products} />
+          <ShoppingCart isOpen={isOpen}shoppingCart={shoppingCart} products={products} handleAddItemsToCart ={handleAddItemsToCart} handleRemoveItemToCart ={handleRemoveItemToCart} />
           <span className="cart-icons icon button">
             <i className="material-icons md-48">monetization_on</i>
           </span>

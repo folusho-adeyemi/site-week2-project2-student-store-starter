@@ -27,7 +27,6 @@ export default function App() {
     async function fetchData() {
       try {
         const response = await axios(API_URL);
-       //const data = await response.json();
         setProducts(response.data.products);
       } catch (error) {
         console.log(error);
@@ -43,7 +42,7 @@ export default function App() {
   setIsOpen(!isOpen);
   }
 
-  function handleAddItemsToCart(productId) {
+  function handleAddItemsToCart(productId,) {
     let temp = [...shoppingCart];
     let inCart = false;
 
@@ -63,12 +62,12 @@ export default function App() {
     setShoppingCart(temp);
   }
 
-  function handleRemoveItemToCart(productId) {
+  function handleRemoveItemToCart(productId, IncrementedValue) {
     let temp = [...shoppingCart];
     let inCart = false;
 
     temp = temp.map((item) => {
-      if (item.itemId === productId) {
+      if (item.itemId === productId || item.quantity > 0) {
         inCart = true;
         return { ...item, quantity: item.quantity - 1 };
       } else {
