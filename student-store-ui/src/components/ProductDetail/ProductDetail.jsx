@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 
 
-export default function ProductDetail({ products }){
+export default function ProductDetail({ products , handleAddItemsToCart, handleRemoveItemToCart}){
     const { productId } = useParams();
     
     // Find the product with the matching productId

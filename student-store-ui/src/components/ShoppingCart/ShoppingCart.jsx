@@ -4,12 +4,13 @@ import "./ShoppingCart.css";
 const TAX_RATE = 0.0875; // 8.75%
 
 export default function ShoppingCart({ isOpen, shoppingCart, products, handleAddItemsToCart ,handleRemoveItemToCart }) {
-    console.log(shoppingCart)
+    // console.log(shoppingCart)
   const calculateSubtotal = () => {
     let subtotal = 0;
 
     shoppingCart.forEach((item) => {
-      const product = products.find((p) => p.itemId === item.itemId);
+      const product = products.find((item) => products.itemId === item.itemId);
+      console.log(item)
       if (product) {
         subtotal += product.price * item.quantity;
       }

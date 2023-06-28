@@ -22,7 +22,7 @@ import { BrowserRouter, Link } from "react-router-dom"
         {/* TODO: FIX according sto specifications */}
         <Link to={"/products/" + product.id}> 
         {/* TODO: Get it to navigate to description page when clicked */}
-            <img className="product-img" src={product.image}></img>
+            {/* <img className="product-img" src={product.image}></img> */}
         </Link>
         <div className="container">
         <button className="add" 
