@@ -5,6 +5,7 @@ import { BrowserRouter, Link } from "react-router-dom"
  export default function ProductCard({product, productId, handleAddItemsToCart, handleRemoveItemToCart, showDescription}){
     
     const [IncrementedValue, setIncrementedValue] = useState(0)
+    // console.log(product)
 
     function selectedValue(){
     if (IncrementedValue <= 0){
@@ -28,7 +29,7 @@ import { BrowserRouter, Link } from "react-router-dom"
         <div className="container">
         <button className="add" 
         onClick={() => {
-        handleAddItemsToCart(productId);
+        handleAddItemsToCart(productId, product.price);
         setIncrementedValue(IncrementedValue +1)
         }}>
             <h3>+</h3>
@@ -37,7 +38,7 @@ import { BrowserRouter, Link } from "react-router-dom"
        
         <button className="remove" 
         onClick={() => {
-            handleRemoveItemToCart(productId, IncrementedValue);
+            handleRemoveItemToCart(productId, product.price);
             setIncrementedValue(IncrementedValue -1)
             
         }}>

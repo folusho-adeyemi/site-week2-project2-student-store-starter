@@ -14,7 +14,7 @@ export default function Sidebar({isOpen,shoppingCart,products,checkoutForm,handl
           <span className="cart-icons icon button">
             <i className="material-icons md-48">add_shopping_cart</i>
           </span>
-          <ShoppingCart isOpen={isOpen}shoppingCart={shoppingCart} products={products} handleAddItemsToCart ={handleAddItemsToCart} handleRemoveItemToCart ={handleRemoveItemToCart} />
+          <ShoppingCart isOpen={isOpen} shoppingCart={shoppingCart} products={products} handleAddItemsToCart ={handleAddItemsToCart} handleRemoveItemToCart ={handleRemoveItemToCart} />
           <span className="cart-icons icon button">
             <i className="material-icons md-48">monetization_on</i>
           </span>

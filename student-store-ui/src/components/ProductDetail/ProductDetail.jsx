@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 export default function ProductDetail({ products , handleAddItemsToCart, handleRemoveItemToCart}){
     const { productId } = useParams();
+    // console.log(products)
     
     // Find the product with the matching productId
     // Assuming your products array is accessible in this component
@@ -19,10 +20,10 @@ export default function ProductDetail({ products , handleAddItemsToCart, handleR
               <div className="container">
                 <img src ={data.image}></img>
                 <h3>Description: {data.description}</h3>
-              <button className="add" onClick={() => handleAddItemsToCart(productId)}>
+              <button className="add" onClick={() => handleAddItemsToCart(productId, data.price)}>
                   <h3>+</h3>
               </button>
-              <button className="remove" onClick={() => handleRemoveItemToCart(productId)}>
+              <button className="remove" onClick={() => handleRemoveItemToCart(productId, data.price)}>
                   <h3>-</h3>
               </button>
               </div>

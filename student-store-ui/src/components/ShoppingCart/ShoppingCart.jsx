@@ -7,15 +7,19 @@ export default function ShoppingCart({ isOpen, shoppingCart, products, handleAdd
     // console.log(shoppingCart)
   const calculateSubtotal = () => {
     let subtotal = 0;
+    
+  Object.values(shoppingCart).forEach((item) => {
+    console.log(products, "ITEM", item)
+    const product = products.find((prod) => prod.id === item.itemId);
+    if (product) {
+      const itemSubtotal = product.price * item.quantity;
+      subtotal += itemSubtotal;
+      console.log(`Item ID: ${item.itemId}, Quantity: ${item.quantity}, Subtotal: ${itemSubtotal}`);
+    }
+  });
 
-    shoppingCart.forEach((item) => {
-      const product = products.find((item) => products.itemId === item.itemId);
-      console.log(product)
-      if (product) {
-        subtotal += product.price * item.quantity;
-      }
-    });
 
+    console.log("subtotal ", subtotal)
     return subtotal.toFixed(2);
   };
 
@@ -33,10 +37,10 @@ export default function ShoppingCart({ isOpen, shoppingCart, products, handleAdd
 
     return total.toFixed(2);
   };
-
+console.log("Hello", isOpen, typeof shoppingCart,)
   return (
     <div className={`shopping-cart ${isOpen ? "open" : ""}`}>
-      {shoppingCart.length > 0 ? (
+      {Object.keys(shoppingCart).length > 0 ? (
         <table className="cart-table">
           <thead>
             <tr>
@@ -46,8 +50,8 @@ export default function ShoppingCart({ isOpen, shoppingCart, products, handleAdd
             </tr>
           </thead>
           <tbody>
-            {shoppingCart.map((item) => {
-              const product = products.find((p) => p.itemId === item.itemId);
+            {Object.values(shoppingCart).forEach((item) => {
+              const product = products.find((prod) => prod.itemId === products.Id);
               if (product) {
                 const subtotal = (product.price * item.quantity).toFixed(2);
 

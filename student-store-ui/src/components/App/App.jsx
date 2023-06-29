@@ -16,7 +16,7 @@ export default function App() {
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [shoppingCart, setShoppingCart] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState({});
   const [checkoutForm, setCheckoutForm] = useState({ name: "", email: "" });
   const API_URL = "https://codepath-store-api.herokuapp.com/store";
 
@@ -33,7 +33,7 @@ export default function App() {
         setIsFetching(true);
       }
     }
-    console.log(products);
+    // console.log(products);
     fetchData();
   }, []);
 
@@ -42,47 +42,45 @@ export default function App() {
   setIsOpen(!isOpen);
   }
 
-  function handleAddItemsToCart(productId,) {
-    let temp = [...shoppingCart];
+  function handleAddItemsToCart(productId, price) {
+    let temp = { ...shoppingCart };
     let inCart = false;
-
-    temp = temp.map((item) => {
-      if (item.itemId === productId) {
-        inCart = true;
-        return { ...item, quantity: item.quantity + 1 };
-      } else {
-        return item;
-      }
-    });
-
-    if (!inCart) {
-      temp = [...temp, { itemId: productId, quantity: 1 }];
+  
+    if (temp[productId]) {
+      temp[productId] = {
+        ...temp[productId],
+        quantity: temp[productId].quantity + 1,
+        price: price,
+      };
+      inCart = true;
+    } else {
+      temp[productId] = {
+        itemId: productId,
+        quantity: 1,
+        price: price,
+      };
     }
-
+  
     setShoppingCart(temp);
   }
 
-  function handleRemoveItemToCart(productId, IncrementedValue) {
-    let temp = [...shoppingCart];
+  function handleRemoveItemToCart(productId, price) {
+    let temp = { ...shoppingCart };
     let inCart = false;
-
-    temp = temp.map((item) => {
-      if (item.itemId === productId){
-      }if(item.quantity != 0)
-      {
-        inCart = true;
-        return { ...item, quantity: item.quantity - 1 };
-      } else {
-        return item;
-      }
-    });
-
-    if (!inCart) {
-      temp = [...temp, { itemId: productId, quantity: 0 }];
+  
+    if (temp[productId] && temp[productId].quantity > 0) {
+      temp[productId] = {
+        ...temp[productId],
+        quantity: temp[productId].quantity - 1,
+        price: price,
+      };
+      inCart = true;
     }
-
+  
     setShoppingCart(temp);
   }
+  
+
 
   function handleOnCheckoutFormChange(name, value) {
     setCheckoutForm((prevForm) => ({
@@ -137,4 +135,4 @@ export default function App() {
       </BrowserRouter>
     </div>
   );
-}
+            }
