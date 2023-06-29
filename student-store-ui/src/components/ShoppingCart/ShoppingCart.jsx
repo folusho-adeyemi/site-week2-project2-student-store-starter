@@ -9,12 +9,12 @@ export default function ShoppingCart({ isOpen, shoppingCart, products, handleAdd
     let subtotal = 0;
     
   Object.values(shoppingCart).forEach((item) => {
-    console.log(products, "ITEM", item)
-    const product = products.find((prod) => prod.id === item.itemId);
+    const product = products.find((prod) => prod.id === parseInt(item.itemId));
+    console.log(product)
     if (product) {
       const itemSubtotal = product.price * item.quantity;
       subtotal += itemSubtotal;
-      console.log(`Item ID: ${item.itemId}, Quantity: ${item.quantity}, Subtotal: ${itemSubtotal}`);
+      // console.log(`Item ID: ${item.itemId}, Quantity: ${item.quantity}, Subtotal: ${itemSubtotal}`);
     }
   });
 
@@ -50,13 +50,13 @@ console.log("Hello", isOpen, typeof shoppingCart,)
             </tr>
           </thead>
           <tbody>
-            {Object.values(shoppingCart).forEach((item) => {
-              const product = products.find((prod) => prod.itemId === products.Id);
+            {Object.values(shoppingCart).map((item) => {
+              const product = products.find((prod) => prod.id === parseInt(item.itemId));
+              console.log(product)
               if (product) {
                 const subtotal = (product.price * item.quantity).toFixed(2);
-
                 return (
-                  <tr key={item.itemId}>
+                  <tr key={product.id}>
                     <td>{product.name}</td>
                     <td>{item.quantity}</td>
                     <td>${subtotal}</td>

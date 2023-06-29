@@ -27,6 +27,9 @@
   }
   
   .notification {
+    border: #888;
+    border-top: 50px;
+    margin-top: 50px;
     color: #888;
     font-style: italic;
   }

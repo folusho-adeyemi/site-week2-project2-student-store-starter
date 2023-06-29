@@ -67,6 +67,10 @@ export default function App() {
   function handleRemoveItemToCart(productId, price) {
     let temp = { ...shoppingCart };
     let inCart = false;
+    console.log(temp)
+    if (temp[productId] && temp[productId].quantity == 1){
+      delete temp[productId]
+    }
   
     if (temp[productId] && temp[productId].quantity > 0) {
       temp[productId] = {
@@ -76,6 +80,7 @@ export default function App() {
       };
       inCart = true;
     }
+    
   
     setShoppingCart(temp);
   }
