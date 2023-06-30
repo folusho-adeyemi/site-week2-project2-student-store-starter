@@ -4,7 +4,6 @@ import "./ShoppingCart.css";
 const TAX_RATE = 0.0875; // 8.75%
 
 export default function ShoppingCart({ isOpen, shoppingCart, products, handleAddItemsToCart ,handleRemoveItemToCart }) {
-    // console.log(shoppingCart)
   const calculateSubtotal = () => {
     let subtotal = 0;
     
@@ -14,7 +13,6 @@ export default function ShoppingCart({ isOpen, shoppingCart, products, handleAdd
     if (product) {
       const itemSubtotal = product.price * item.quantity;
       subtotal += itemSubtotal;
-      // console.log(`Item ID: ${item.itemId}, Quantity: ${item.quantity}, Subtotal: ${itemSubtotal}`);
     }
   });
 
@@ -41,12 +39,14 @@ console.log("Hello", isOpen, typeof shoppingCart,)
   return (
     <div className={`shopping-cart ${isOpen ? "open" : ""}`}>
       {Object.keys(shoppingCart).length > 0 ? (
+        <div className="items-header">
         <table className="cart-table">
           <thead>
             <tr>
               <th>Product</th>
               <th>Quantity</th>
-              <th>Subtotal</th>
+              <th>Unit pricee</th>
+              <th>Cost</th>
             </tr>
           </thead>
           <tbody>
@@ -59,6 +59,7 @@ console.log("Hello", isOpen, typeof shoppingCart,)
                   <tr key={product.id}>
                     <td>{product.name}</td>
                     <td>{item.quantity}</td>
+                    <td>${product.price}</td>
                     <td>${subtotal}</td>
                   </tr>
                 );
@@ -66,19 +67,20 @@ console.log("Hello", isOpen, typeof shoppingCart,)
               return null;
             })}
             <tr>
-              <td colSpan="2">Subtotal:</td>
-              <td>${calculateSubtotal()}</td>
+              <td colSpan="3"><b>Subtotal:</b></td>
+              <td><b>${calculateSubtotal()}</b></td>
             </tr>
             <tr>
-              <td colSpan="2">Tax:</td>
-              <td>${calculateTax()}</td>
+              <td colSpan="3"><b>Taxes and fees:</b></td>
+              <td><b>${calculateTax()}</b></td>
             </tr>
             <tr>
-              <td colSpan="2">Total:</td>
-              <td>${calculateTotal()}</td>
+              <td colSpan="3"><b>Total:</b></td>
+              <td><b>${calculateTotal()}</b></td>
             </tr>
           </tbody>
         </table>
+        </div>
       ) : (
         <div className="notification">No items added to cart yet. Start shopping now!</div>
       )}

@@ -7,7 +7,7 @@ export default function Sidebar({isOpen,shoppingCart,products,checkoutForm,handl
     <aside className={`sidebar ${isOpen ? "open" : ""}`}>
         <div className="cart-icons">
         {isOpen ? (
-          <div>
+          <div className="shoppping-cart">
           <button className="toggle-button button open" onClick={handleOnToggle}>
             <i className="material-icons md-48">arrow_backward</i>
           </button>

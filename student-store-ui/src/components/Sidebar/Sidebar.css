@@ -16,7 +16,9 @@
 	top: 0;
 	overflow-y: hidden;
 }
-
+.shopping-cart{
+	margin-top: 40px;
+}
 .sidebar.open {
 	transform: translateX(440px);
 	overflow-y: scroll;
@@ -67,7 +69,9 @@
 	transition: 0.15s;
 	gap: 20px;
 }
-
+.cart-icons.icon.button{
+ color: white;
+}
 .sidebar-icon {
 	width: 40px;
 	height: 40px;
