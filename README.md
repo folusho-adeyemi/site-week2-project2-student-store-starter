@@ -22,10 +22,10 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 ### Stretch Features
 
-- [ ] Users can click to expand the shopping cart in the left navigation.
-- [ ] Users can click the '+' button on a product cart to increment that product in the shopping cart.
-- [ ] Users can click the '-' button on a product cart to decrement that product in the shopping cart.
-- [ ] The shopping cart displays a table of products, quantities, subtotal, tax, and total.
+- [x] Users can click to expand the shopping cart in the left navigation.
+- [x] Users can click the '+' button on a product cart to increment that product in the shopping cart.
+- [x] Users can click the '-' button on a product cart to decrement that product in the shopping cart.
+- [x] The shopping cart displays a table of products, quantities, subtotal, tax, and total.
 - [ ] Your choice! (Replace this bullet explaining what you implemented. Example: Users can leave ratings for products they have purchased.)
 
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/3cd555e5958445598e30dc94e0145ab3?sid=a4c32134-d0a8-4a54-b551-23a02e7dd8ff" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
@@ -33,11 +33,11 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 ### Core Features
 
-- [ ] User can click to expand the shopping cart in the left navigation.
-- [ ] Users can click the '+' button on a product cart to increment that product in the shopping cart.
-- [ ] Users can click the '-' button on a product cart to decrement that product in the shopping cart. If the count is zero, the product should be removed from the cart.
-- [ ] The shopping cart displays a table of products, quantities, subtotal, tax, and total.
-- [ ] Users can checkout, and receive a receipt confirming their purchase.
+- [x] User can click to expand the shopping cart in the left navigation.
+- [x] Users can click the '+' button on a product cart to increment that product in the shopping cart.
+- [x] Users can click the '-' button on a product cart to decrement that product in the shopping cart. If the count is zero, the product should be removed from the cart.
+- [x] The shopping cart displays a table of products, quantities, subtotal, tax, and total.
+- [x] Users can checkout, and receive a receipt confirming their purchase.
 
 ### Stretch Features
 
