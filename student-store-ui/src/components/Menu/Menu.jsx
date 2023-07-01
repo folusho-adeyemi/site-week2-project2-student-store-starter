@@ -39,7 +39,6 @@ export default function Menu(products,) {
                 <button className="menu-btn" onClick={() => showTech()}>Tech</button>
             </li>
         </ul>
-        {/* <ProductGrid products={products} handleAddItemsToCart ={handleItemToCart} handleRemoveItemToCart= {handleRemoveItemToCart} category={category}/> */}
     </div>
     
   )

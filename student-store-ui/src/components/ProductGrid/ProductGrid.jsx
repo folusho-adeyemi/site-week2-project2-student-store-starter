@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 
 
-export default function ProductGrid({ products, handleAddItemsToCart, handleRemoveItemToCart }) {
+export default function ProductGrid({ products, handleAddItemsToCart, handleRemoveItemFromCart }) {
     const [showMenu, setShowMenu] = useState(true);
     const [searched, setSearched] = useState("");
     const regexp = new RegExp(searched, "i");
@@ -44,7 +44,7 @@ export default function ProductGrid({ products, handleAddItemsToCart, handleRemo
   
         {showMenu === true ? (
           <div className="menu">
-            <ul className="category-menu open">
+            <ul className="category-menu">
               <button className="toggle-menu" onClick={() => handleShowMenu()}>
                 <i className="material-icons">menu</i>
               </button>
@@ -88,7 +88,7 @@ export default function ProductGrid({ products, handleAddItemsToCart, handleRemo
                 product={product}
                 productId={product.id}
                 handleAddItemsToCart={handleAddItemsToCart}
-                handleRemoveItemToCart={handleRemoveItemToCart}
+                handleRemoveItemFromCart={handleRemoveItemFromCart}
                 showDescription={false}
                 key={idx}
               />
@@ -99,7 +99,7 @@ export default function ProductGrid({ products, handleAddItemsToCart, handleRemo
                 product={product}
                 productId={product.id}
                 handleAddItemsToCart={handleAddItemsToCart}
-                handleRemoveItemToCart={handleRemoveItemToCart}
+                handleRemoveItemFromCart={handleRemoveItemFromCart}
                 showDescription={false}
                 key={idx}
               />
@@ -109,7 +109,7 @@ export default function ProductGrid({ products, handleAddItemsToCart, handleRemo
               product={product}
               productId={product.id}
               handleAddItemsToCart={handleAddItemsToCart}
-              handleRemoveItemToCart={handleRemoveItemToCart}
+              handleRemoveItemFromCart={handleRemoveItemToCart}
               showDescription={false}
               key={idx}
             />

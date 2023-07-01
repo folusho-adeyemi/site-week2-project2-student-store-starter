@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 
 
 
-export default function ProductDetail({ products , handleAddItemsToCart, handleRemoveItemToCart}){
+export default function ProductDetail({ products , handleAddItemsToCart, handleRemoveItemFromCart}){
     const { productId } = useParams();
     // console.log(products)
     
     // Find the product with the matching productId
     // Assuming your products array is accessible in this component
     const data = products.find((data) => data.id === parseInt(productId));
+    // console.log(data.price)
     
     if (data) {
         return (
@@ -23,7 +24,7 @@ export default function ProductDetail({ products , handleAddItemsToCart, handleR
               <button className="add" onClick={() => handleAddItemsToCart(productId, data.price)}>
                   <h3>+</h3>
               </button>
-              <button className="remove" onClick={() => handleRemoveItemToCart(productId, data.price)}>
+              <button className="remove" onClick={() => handleRemoveItemFromCart(productId,data.price)}>
                   <h3>-</h3>
               </button>
               </div>

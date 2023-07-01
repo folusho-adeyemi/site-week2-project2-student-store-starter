@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./ProductCard.css"
 import { BrowserRouter, Link } from "react-router-dom"
 
- export default function ProductCard({product, productId, handleAddItemsToCart, handleRemoveItemToCart, showDescription}){
+ export default function ProductCard({product, productId, handleAddItemsToCart, handleRemoveItemFromCart, showDescription}){
     
     const [IncrementedValue, setIncrementedValue] = useState(0)
     // console.log(product)
@@ -29,7 +29,7 @@ import { BrowserRouter, Link } from "react-router-dom"
         <div className="container">
         <button className="add" 
         onClick={() => {
-        handleAddItemsToCart(productId, product.price);
+        handleAddItemsToCart(productId, product.price,product);
         setIncrementedValue(IncrementedValue +1)
         }}>
             <h3>+</h3>
@@ -38,9 +38,8 @@ import { BrowserRouter, Link } from "react-router-dom"
        
         <button className="remove" 
         onClick={() => {
-            handleRemoveItemToCart(productId, product.price);
-            setIncrementedValue(IncrementedValue -1)
-            
+        handleRemoveItemFromCart(productId, product.price, product.name);
+        setIncrementedValue(IncrementedValue -1)   
         }}>
             <h3>-</h3>
         </button>
@@ -48,9 +47,6 @@ import { BrowserRouter, Link } from "react-router-dom"
         <div className="product-price">
             <p className="price">Price: ${product.price}</p>
         </div>
-        {/* <div className="product-quantity">
-            <p className="quantity" >Left: {product.quantity}</p>
-        </div> */}
         {showDescription == true
           ? <div className="product-description"><p className="description">{product.description}</p></div>
           :<div></div>

@@ -119,10 +119,22 @@ img{
 .socials{
     height:100%;
     width: 100%;
+    display: flex;
+    position: relative;
+    gap: 10px;
 }
+
   
 
 .links{
     display: block;
     justify-content: space-between;
+    gap: 60px;
+}
+
+.icons img {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    gap: 60px;
 }

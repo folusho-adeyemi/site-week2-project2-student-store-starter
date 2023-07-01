@@ -37,7 +37,6 @@ export default function Navbar() {
         </ul>
         </div>
       </div>
-      {/* <p>Navbar</p> */}
     </nav>
   )
 }

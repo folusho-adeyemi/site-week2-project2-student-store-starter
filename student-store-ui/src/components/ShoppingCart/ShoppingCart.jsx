@@ -1,41 +1,49 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import "./ShoppingCart.css";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 const TAX_RATE = 0.0875; // 8.75%
 
-export default function ShoppingCart({ isOpen, shoppingCart, products, handleAddItemsToCart ,handleRemoveItemToCart }) {
+export default function ShoppingCart({ isOpen, shoppingCart, products, subtotal, tax, total, setSubtotal, setTax, setTotal}) {
   const calculateSubtotal = () => {
     let subtotal = 0;
     
   Object.values(shoppingCart).forEach((item) => {
     const product = products.find((prod) => prod.id === parseInt(item.itemId));
-    console.log(product)
+
     if (product) {
       const itemSubtotal = product.price * item.quantity;
       subtotal += itemSubtotal;
     }
   });
 
+    const subtotalValue = subtotal.toFixed(2);
+    setSubtotal(subtotalValue);
 
-    console.log("subtotal ", subtotal)
-    return subtotal.toFixed(2);
+    return subtotalValue;
   };
 
   const calculateTax = () => {
-    const subtotal = parseFloat(calculateSubtotal());
-    const tax = subtotal * TAX_RATE;
+    const subtotalValue = parseFloat(calculateSubtotal());
+    const taxValue = subtotalValue * TAX_RATE;
+    
+    const taxValueFormat = taxValue.toFixed(2);
+    setTax(taxValueFormat);
 
-    return tax.toFixed(2);
+    return taxValueFormat;
   };
 
   const calculateTotal = () => {
-    const subtotal = parseFloat(calculateSubtotal());
-    const tax = parseFloat(calculateTax());
-    const total = subtotal + tax;
+    const subtotalValue = parseFloat(calculateSubtotal());
+    const taxValue = parseFloat(calculateTax());
+    const totalValue = subtotalValue + taxValue;
 
-    return total.toFixed(2);
-  };
-console.log("Hello", isOpen, typeof shoppingCart,)
+    const totalValueFormat = totalValue.toFixed(2);
+    setTotal(totalValueFormat);
+
+    return totalValueFormat;
+};
+
   return (
     <div className={`shopping-cart ${isOpen ? "open" : ""}`}>
       {Object.keys(shoppingCart).length > 0 ? (

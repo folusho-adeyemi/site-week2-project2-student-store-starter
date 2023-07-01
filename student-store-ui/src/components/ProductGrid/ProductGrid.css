@@ -41,7 +41,7 @@
 }
 
 .menu{
-    background-color: #fbe3ea;
+    background-color: #02c385;
 }
 .category-menu {
     display: flex;
@@ -64,7 +64,7 @@ li {
     text-decoration: none;
     color: black;
     border: none;
-    background-color: #fbe3ea;
+    background-color: #02c385;
     padding-left: 10px;
 }
 .menu-btn:hover{
@@ -73,17 +73,20 @@ li {
     border-bottom-color: black;
 }
 .tb {
-    display: table;
-    width: 100%;
+   display: table;
+    width: 50px;
   }
   
 .td {
-display: table-cell;
-vertical-align: middle;
+  display: table-cell;
+  vertical-align: middle;
+  width: 900px;
+  height: 10px;
+ 
 }
   
 .search-text{
-    color: #f4f0f1;
+    color: #000000;
   }
 .search {
 color: #010000;
@@ -102,7 +105,7 @@ right: 0;
 width: 550px;
 padding: 35px;
 margin: -70px auto 0 auto;
-background-color: white;
+background-color: rgb(2, 1, 1);
 border-radius: 20px;
 box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
 transform: scale(0.6);
